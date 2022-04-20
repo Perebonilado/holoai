@@ -106,7 +106,7 @@ const Card: React.FC<Props> = ({
     <div className={styles.container} > 
       <div className={styles.detailsBox}>
 
-    {isApproved === false && <Checkbox  checked={selected} onChange={()=>{
+    {isApproved === false && <Checkbox className={styles.checkBoxParent}  checked={selected} onChange={()=>{
       setSelected(!selected)
       // track the id of items selected to enable shortcut functions
       if(!selectedArr.includes(id))
@@ -125,7 +125,7 @@ const Card: React.FC<Props> = ({
 
           <a target={'_blank'} rel='noopener noreferrer'>
 
-          <img src={imgSrc || ''} alt="picture" />
+          <img src={imgSrc || ''} alt="picture" className={styles.imageBox}/>
 
           </a>
 
