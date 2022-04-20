@@ -158,7 +158,12 @@ const Card: React.FC<Props> = ({
              
               </p>
 
-            <p>Score: {isEditScore===true ? <NumberInput className={styles.scoreInput} value={editScoreValue} onChange={(e)=>setEditScoreValue(Number(e.target.value))}/> : <span>{score}</span>}
+            <p>Score: {isEditScore===true ? <NumberInput onKeyDown={(e)=>{
+                if(e.key === 'Enter') {
+                  if(editScoreValue >=0 || editScoreValue<=5) handleEditScoreSubmit(id)
+                  setIsEditScore(false)
+                }
+            }}  className={styles.scoreInput} value={editScoreValue} onChange={(e)=>setEditScoreValue(Number(e.target.value))}/> : <span>{score}</span>}
             
             {isApproved === false && !isEditScore && <span className={styles.editButton} onClick={()=>setIsEditScore(true)}><i className={'fas fa-edit'}></i></span>}
             
