@@ -41,7 +41,7 @@ const Home: NextPage = () => {
   },[postsData])
 
   const shortCutFunction = (e:KeyboardEvent) => {
-    if(e.key == 'a')
+    if(e.key == 'y' && e.ctrlKey)
     {
       // save changes to history first 
       const saveToHistory = () => {
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
     }
 
     // delete function for id's in the selected Array
-    else if(e.key == 'd')
+    else if(e.key == 'd' && e.ctrlKey)
     {
       let recursDel = function DelItem(){
         let newPostData:any = [...postsData]
@@ -100,7 +100,7 @@ const Home: NextPage = () => {
       setPostsData(recursDel)
     }
 
-    else if (e.key == 'u'){
+    else if (e.key == 'z' && e.ctrlKey){
       handleUndo(history, currentHistoryPosition, setPostsData, postsData, setCurrentHistoryPosition)
     }
   }

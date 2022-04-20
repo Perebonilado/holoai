@@ -79,7 +79,8 @@ const Card: React.FC<Props> = ({
 
 //  function to to handle shortcuts for toggles
   const handleToggleShortCuts = (e:KeyboardEvent) => {
-    if(e.key == 't'){
+    
+    if(e.key == 'q' && e.ctrlKey){
       if(selected)
       {
         setIsEditText(!isEditText)
@@ -87,7 +88,7 @@ const Card: React.FC<Props> = ({
       }
     }
 
-    if(e.key == 's'){
+    if(e.key == 'm' && e.ctrlKey){
       if(selected)
       {
         setIsEditScore(!isEditScore)
@@ -135,7 +136,13 @@ const Card: React.FC<Props> = ({
           <div>
             <p style={{marginBottom: '1rem'}}>
 
-              Text: {isEditText === true ? <TextInput onChange={(e)=>setEditTextValue(e.target.value.trimStart())} value={editTextValue || ''} className={styles.editBox} /> : <span>{text}</span>} 
+              Text: {isEditText === true ? <TextInput onKeyDown={(e)=>{
+                  if(e.key == 'Enter'){
+                    if(editTextValue !== '') handleEditTextSubmit(id)
+                    if(!editTextValue) setEditTextValue(text || '')
+                    setIsEditText(false)
+                  }
+              }} onChange={(e)=>setEditTextValue(e.target.value.trimStart())} value={editTextValue || ''} className={styles.editBox} /> : <span>{text}</span>} 
 
               {isApproved === false && !isEditText && <span className={styles.editButton} onClick={()=>setIsEditText(true)}><i className={'fas fa-edit'}></i></span>}
               
