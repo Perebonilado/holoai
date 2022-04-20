@@ -1,4 +1,4 @@
-import React, { Dispatch, useState } from 'react'
+import React, { Dispatch } from 'react'
 import styles from './styles.module.css'
 import Card from '../Card'
 import Loader from '../Loader';
