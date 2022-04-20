@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background-color: #171717;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.container>div:first-child{
+    display: flex;
+    align-items: center;
+}
+
+.container img {
+    margin-right: 2rem;
+    border-radius: .3rem;
+}
+
+.detailsBox>div {
+    align-self: flex-start;
+}
+
+.detailsBox p{
+    line-height: 2rem;
+    color: #CFCFCF;
+}
+
+.detailsBox span {
+    color: #ffff;
+}
+
+.buttonsContainer{
+    display: flex;
+}
+
+.buttonsContainer div:first-child {
+    margin-right: 3rem;
+}
+
+.editBox, .scoreInput {
+    padding: .5rem;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
+}
+
+.editBox {
+    width: 20rem;
+}
+
+.editButton {
+    color: orange !important;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.okButton {
+    margin-left: 1rem;
+    border: none;
+    padding: .3rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 670px){
+    .container {
+        flex-direction: column;
+    }
+
+    .container>div:first-child{
+        margin-bottom: 2rem;
+    }
+
+    .buttonsContainer div:first-child {
+        margin-right: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    .container>div:first-child{
+        flex-direction: column;
+    }
+}

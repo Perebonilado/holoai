@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    padding: 1.5rem 0;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container>div:first-child {
+    display: flex;
+}
+
+.container>div:first-child p {
+    margin-right: 1rem;
+    color: #D0CBCB;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.line1, .line2, .line3 {
+    background-color: #fff;
+    height: 2px;
+}
+
+.line1 {
+    width: 20px;
+    margin-bottom: 3px;
+}
+
+.line2 {
+    width: 15px;
+    margin-bottom: 3px;
+}
+
+.line3 {
+    width: 10px;
+}
+
+.filterBox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.filterBox p {
+    margin-left: .5rem;
+}
+
+.filterIcon {
+    cursor: pointer;
+}
