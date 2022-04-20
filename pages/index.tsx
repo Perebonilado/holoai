@@ -23,6 +23,7 @@ const Home: NextPage = () => {
 
   const { history, setHistory, setCurrentHistoryPosition, currentHistoryPosition } = React.useContext(AppContext) as AppTypes
  
+  // fetch data
   const posts = useFetchData({
     enabled: true
   })
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
   const shortCutFunction = (e:KeyboardEvent) => {
     if(e.key == 'a')
     {
+      // save changes to history first 
       const saveToHistory = () => {
         let postsArrCopy = [...postsData]
         let changes:any = []
@@ -66,9 +68,11 @@ const Home: NextPage = () => {
       
       saveToHistory()
 
+      // the actual change
       setPostsData(postsData.map((item:any)=>selectedArr.includes(item.id) ? {...item, isApproved: true} : item))
     }
 
+    // delete function for id's in the selected Array
     else if(e.key == 'd')
     {
       let recursDel = function DelItem(){
@@ -94,6 +98,10 @@ const Home: NextPage = () => {
       }()
 
       setPostsData(recursDel)
+    }
+
+    else if (e.key == 'u'){
+      handleUndo(history, currentHistoryPosition, setPostsData, postsData, setCurrentHistoryPosition)
     }
   }
 
