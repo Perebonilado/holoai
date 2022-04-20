@@ -77,6 +77,7 @@ const Card: React.FC<Props> = ({
     if(isApproved===false) setSelected(false)
   }, [isApproved])
 
+//  function to to handle shortcuts for toggles
   const handleToggleShortCuts = (e:KeyboardEvent) => {
     if(e.key == 't'){
       if(selected)
